@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Health Prediction System</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085); /* Warm, vibrant gradient */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Container */
+        .main-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 2px solid #ff7f50; /* Adding a border */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        header .hero {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(120deg, #ff7e5f, #feb47b); /* Sunset gradient */
+            border-radius: 12px;
+            color: #ffffff;
+            border: 3px solid #ff6347; /* Adding border to header */
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 25px 0;
+            background-color: #f8f9fa; /* Light background for form section */
+            border-radius: 8px;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #ff6347; /* Tomato color */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid #ff7f50; /* Adding a bottom border */
+            padding-bottom: 10px;
+        }
+
+        /* Form Styles */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            padding: 14px;
+            font-size: 18px;
+            border: 2px solid #f0ad4e; /* Light golden border */
+            border-radius: 8px;
+            transition: all 0.3s;
+            background-color: #f1f1f1; /* Soft background for inputs */
+        }
+
+        .input-group input:focus {
+            border-color: #ff6347; /* Tomato focus border */
+            box-shadow: 0 0 8px rgba(255, 99, 71, 0.5);
+            outline: none;
+            background-color: #ffffff; /* Light background on focus */
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 15px;
+            font-size: 18px;
+            background: linear-gradient(90deg, #ff6347, #ff7f50); /* Gradient button */
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adding shadow to button */
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #ff7f50, #ff4500); /* Hover effect */
+        }
+
+        /* Result Styles */
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #ff7f50; /* Adding border to result */
+        }
+
+        .result p {
+            margin: 0;
+        }
+
+        .result.good {
+            background: #d4edda; /* Light green background */
+            color: #28a745;
+            border: 2px solid #28a745;
+        }
+
+        .result.low {
+            background: #f8d7da; /* Light red background */
+            color: #dc3545;
+            border: 2px solid #dc3545;
+        }
+
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            font-size: 14px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #555;
+            border: 2px solid #f0ad4e; /* Border for footer */
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .form-section h2 {
+                font-size: 26px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="hero">
+                <h1>🚗 Engine Health Prediction System</h1>
+                <p>
+                    Welcome to the Engine Health Prediction System! This tool helps predict the health of an engine 
+                    based on key parameters like RPM, lubricant oil pressure, fuel pressure, coolant pressure, and 
+                    temperature values. Enter the details below to get started.
+                </p>
+            </div>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Enter Engine Parameters</h2>
+                <form id="predictionForm" class="form">
+                    <div class="input-group">
+                        <label for="rpm">Engine RPM:</label>
+                        <input type="number" step="0.01" id="rpm" name="rpm" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="oilPressure">Lubricant Oil Pressure (psi):</label>
+                        <input type="number" step="0.01" id="oilPressure" name="oilPressure" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="fuelPressure">Fuel Pressure (psi):</label>
+                        <input type="number" step="0.01" id="fuelPressure" name="fuelPressure" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="coolantPressure">Coolant Pressure (psi):</label>
+                        <input type="number" step="0.01" id="coolantPressure" name="coolantPressure" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="oilTemp">Lubricant Oil Temperature (°C):</label>
+                        <input type="number" step="0.01" id="oilTemp" name="oilTemp" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="coolantTemp">Coolant Temperature (°C):</label>
+                        <input type="number" step="0.01" id="coolantTemp" name="coolantTemp" required>
+                    </div>
+                    <button type="submit" class="btn">Predict</button>
+                </form>
+                <div id="result" class="result"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Machine Learning | Designed by Mangodev</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const features = [
+                parseFloat(document.getElementById('rpm').value),
+                parseFloat(document.getElementById('oilPressure').value),
+                parseFloat(document.getElementById('fuelPressure').value),
+                parseFloat(document.getElementById('coolantPressure').value),
+                parseFloat(document.getElementById('oilTemp').value),
+                parseFloat(document.getElementById('coolantTemp').value)
+            ];
+
+            const response = await fetch('http://127.0.0.1:5000/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ features })
+            });
+
+            const resultDiv = document.getElementById('result');
+            if (response.ok) {
+                const data = await response.json();
+                resultDiv.innerHTML = `
+                    <p><strong>Predicted Label:</strong> ${data.predicted_label}</p>
+                    <p><strong>Confidence:</strong> ${(data.confidence * 100).toFixed(2)}%</p>
+                `;
+                resultDiv.className = data.predicted_label === 'Good Health' ? 'result good' : 'result low';
+            } else {
+                resultDiv.innerHTML = `<p class="error">Error: Unable to predict.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

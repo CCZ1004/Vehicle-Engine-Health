@@ -1,0 +1,189 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Warm, vibrant gradient */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container */
+.main-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #ff7f50; /* Adding a border */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+header .hero {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(120deg, #ff7e5f, #feb47b); /* Sunset gradient */
+    border-radius: 12px;
+    color: #ffffff;
+    border: 3px solid #ff6347; /* Adding border to header */
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Form Section */
+.form-section {
+    padding: 25px 0;
+    background-color: #f8f9fa; /* Light background for form section */
+    border-radius: 8px;
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #ff6347; /* Tomato color */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #ff7f50; /* Adding a bottom border */
+    padding-bottom: 10px;
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: 14px;
+    font-size: 18px;
+    border: 2px solid #f0ad4e; /* Light golden border */
+    border-radius: 8px;
+    transition: all 0.3s;
+    background-color: #f1f1f1; /* Soft background for inputs */
+}
+
+.input-group input:focus {
+    border-color: #ff6347; /* Tomato focus border */
+    box-shadow: 0 0 8px rgba(255, 99, 71, 0.5);
+    outline: none;
+    background-color: #ffffff; /* Light background on focus */
+}
+
+/* Button Styles */
+.btn {
+    padding: 15px;
+    font-size: 18px;
+    background: linear-gradient(90deg, #ff6347, #ff7f50); /* Gradient button */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adding shadow to button */
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #ff7f50, #ff4500); /* Hover effect */
+}
+
+/* Result Styles */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #ff7f50; /* Adding border to result */
+}
+
+.result p {
+    margin: 0;
+}
+
+.result.good {
+    background: #d4edda; /* Light green background */
+    color: #28a745;
+    border: 2px solid #28a745;
+}
+
+.result.low {
+    background: #f8d7da; /* Light red background */
+    color: #dc3545;
+    border: 2px solid #dc3545;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #555;
+    border: 2px solid #f0ad4e; /* Border for footer */
+}
+
+footer p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .form-section h2 {
+        font-size: 26px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
