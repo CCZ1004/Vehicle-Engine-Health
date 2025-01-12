@@ -64,7 +64,7 @@ def create_improved_model():
     # Output layer
     model.add(Dense(1, activation='sigmoid'))
 
-    # Compile the model
+    # Kumpul the model
     model.compile(optimizer=Adam(learning_rate=0.0005), loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
